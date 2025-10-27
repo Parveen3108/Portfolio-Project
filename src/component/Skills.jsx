@@ -22,7 +22,6 @@ export default function Skills() {
           <div className='flex text-center justify-center p-2 border rounded-full bg-gray-300'><img src="/public/img/JavaScriptlogo.png" alt="" className='w-70 h-10 md:w-20  mt-1'/></div>
           <div className='flex text-center justify-center p-2 border rounded-full bg-gray-300'><img src="/public/img/JavaScriptlogo.png" alt="" className='w-70 h-10 md:w-20  mt-1'/></div>
          
-          {/* <div><img src="/public/img/Reactlogo.png" alt="" /></div> */}
         </div>
 
         <div>

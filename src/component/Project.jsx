@@ -1,58 +1,88 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
+import { motion } from "framer-motion";
+import project1 from "../../public/img/Filpkart.png";
+import project2 from "../../public/img/Music Player.png";
+import project3 from "../../public/img/Student.png";
 
-export default function Project() {
+export default function Projects() {
+  const projects = [
+    {
+      id: 1,
+      URL: "https://parveen3108.github.io/Flipkart-Clone/",
+      title: "Flipkart Clone",
+      img: project1,
+      description:
+        "A responsive e-commerce website inspired by Flipkart. Built using React, Tailwind CSS, and dummy product APIs for browsing and cart management.",
+    },
+    {
+      id: 2,
+      title: "Music Player",
+      URL:"https://parveen3108.github.io/Music-Player/",
+      img: project2,
+      description:
+        "A web-based music player that allows users to play, pause, and skip tracks. Developed with HTML, CSS, and JavaScript for a seamless audio experience.",
+    },
+    {
+      id: 3,
+      title: "Student Teacher appointment System",
+      URL: "https://parveen3108.github.io/Student-Teacher-Booking/",
+      img: project3,
+      description:
+        "A web application for scheduling appointments between students and teachers. Built using React for the frontend and Firebase for the backend.",
+    },
+  ];
+
   return (
-    <div className="p-10 ">
-      <h2 className="text-3xl font-bold border-b-4 border-indigo-700 pb-2 inline-block">
-        Projects
-      </h2>
+    <section
+      id="projects"
+      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white px-6 py-16 flex flex-col items-center"
+    >
+      {/* Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-5xl font-bold text-indigo-400 mb-12"
+      >
+        My Projects
+      </motion.h2>
 
-      <div className="relative mt-10 p-8 rounded-lg overflow-hidden">
-        {/* Background Gradient Layers */}
-        <div className="absolute inset-0 bg-indigo-700/10 rounded-lg"></div>
-        <div className="absolute right-0 top-0 w-1/2 h-full bg-indigo-700/20 rounded-l-full blur-2xl"></div>
-
-        {/* Content */}
-        <div className="relative z-10">
-          <h3 className="text-2xl font-semibold mb-4">
-            Explore My Projects
-          </h3>
-          <p className="leading-relaxed mb-8">
-            Here are some of my recent projects showcasing my skills and
-            expertise in web development.
-          </p>
-
-          {/* Projects List */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Project Card 1 */}
-            <div className="p-5 border border-indigo-700 rounded-lg hover:bg-indigo-700 hover:text-white transition duration-300">
-              <h4 className="text-xl font-semibold mb-2">Project One</h4>
-              <p>
-                A web application that allows users to track their tasks and
-                manage their time effectively.
+      {/* Project Gallery */}
+      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl">
+        {projects.map((project) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-700 hover:shadow-indigo-500/30 hover:scale-105 transition transform"
+          >
+            <img
+              src={project.img}
+              alt={project.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-5 space-y-3">
+              <h3 className="text-2xl font-semibold text-indigo-400">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                {project.description}
               </p>
+              <a
+                href={project.URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-2 text-indigo-400 hover:text-pink-400 font-medium transition"
+              >
+                View Project →
+              </a>
             </div>
-
-            {/* Project Card 2 */}
-            <div className="p-5 border border-indigo-700 rounded-lg hover:bg-indigo-700 hover:text-white transition duration-300">
-              <h4 className="text-xl font-semibold mb-2">Flipkart Clone</h4>
-              <p>
-                A fully responsive e-commerce website built using React and
-                Tailwind CSS.
-              </p>
-            </div>
-
-            {/* Project Card 3 */}
-            <div className="p-5 border border-indigo-700 rounded-lg hover:bg-indigo-700 hover:text-white transition duration-300">
-              <h4 className="text-xl font-semibold mb-2">Portfolio Website</h4>
-              <p>
-                A personal portfolio site highlighting my projects, skills, and
-                contact details.
-              </p>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }

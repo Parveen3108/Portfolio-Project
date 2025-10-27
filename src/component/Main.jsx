@@ -1,148 +1,107 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-import Typewriter from "typewriter-effect";
-import profilePic from "../../public/img/Parveen.jpeg";
-import project2 from "../../public/img/PersnalPortfolliyo.png";
-import project1 from "../../public/img/Filpkart.png";
 import { motion } from "framer-motion";
+import { FaArrowDown } from "react-icons/fa";
+import profilePic from "../../public/img/Parveen.jpeg"; // Update image path
+import { Link } from "react-router-dom";
+import Projects from "./Project";
+import About from "./About";
+import Contact from "./Contact";
 
-function ProjectCard({ img, title, subtitle }) {
+export default function HomePage() {
   return (
-    <motion.div
-      // drag="y"
-      // dragConstraints={{ top: -100, bottom: 100 }}
-
-      // whileHover={{ scale: 0.90 }}
-      // whileTap={{ scale: 0.95 }}
-      //  transition={{ type: "spring", stiffness: 200, damping: 10 }}
-      initial={{ opacity: 0, x: 60 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.9, type: "keyframes" }}
-       viewport={{ once: true }}
-      className="flex gap-5 border p-5 rounded-lg bg-indigo-900/30 md:flex-col items-center overflow-hidden"
+    <section
+      id="home"
+      className="min-h-screen bg-gradient-to-br from-indigo-900 via-black to-gray-900 text-white flex flex-col items-center justify-center px-6"
     >
-      <img
-        src={img}
-        alt={title}
-        className="w-20 h-20 lg:h-32 object-cover rounded-lg"
-      />
-      <div>
-        <div className="font-semibold">{title}</div>
-        <div className="text-sm text-gray-300">{subtitle}</div>
-      </div>
-    </motion.div>
-  );
-}
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md py-4 flex justify-center gap-10 text-lg font-semibold z-50">
+        <Link
+          to={"/About"}
+          className="hover:text-indigo-400 transition duration-200"
+        >
+          About
+        </Link>
+        <Link
+          to={"/Projects"}
+          className="hover:text-indigo-400 transition duration-200"
+        >
+          Projects
+        </Link>
+        <Link
+          to={"/Contact"}
+          className="hover:text-indigo-400 transition duration-200"
+        >
+          Contact
+        </Link>
+      </nav>
 
-export default function Main() {
-  const HendleDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/public/files/Parveen-Resume.pdf"; // pdf file link
-    link.download = "My_Resume.pdf";
-    link.click();
-  };
+      {/* Hero Section */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-20 md:mt-28 text-center md:text-left">
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <img
+            src={profilePic}
+            alt="Profile"
+            className="w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full border-4 border-indigo-400 shadow-2xl object-cover"
+          />
+        </motion.div>
 
-  return (
-    <div>
-      <div className="flex flex-col sm:flex-row md:gap-10 lg:gap-60 gap-5 items-center justify-center">
-        <div className="border w-80 h-80 rounded-full flex justify-center items-center">
-          <motion.div
-            drag="x"
-            dragConstraints={{ left: -20, right: 20 }}
-            whileHover={{ scale: 1.5 }}
-            whileTap={{ scale: 0.99 }}
-            transition={{ type: "spring", stiffness: 200, dumping: 10 }}
-            className="w-60 h-60 border-2 rounded-full flex justify-center items-center overflow-hidden"
-          >
-            <motion.img
-              src={profilePic}
-              className="w-40 h-40 rounded-full"
-              // initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1.5 }}
-              whileHover={{ scale: 1.7, rotate: 6 }}
-              transition={{ duration: 0.5 }}
-              alt="Parveen Solath"
-              // className="w-full h-full"
-            />
-          </motion.div>
-        </div>
-
-        <div className="text-center sm:text-left">
-          <h2 className="text-xl font-semibold">
-            <Typewriter
-              options={{
-                strings: [
-                  "Hello, I'm Parveen Solath...",
-                  "Front-End Developer.",
-                  "UI Designer.",
-                ],
-                autoStart: true,
-                loop: true,
-                delay: 70,
-                deleteSpeed: 60,
-              }}
-            />
-          </h2>
-          <h1 className="mt-5 text-4xl font-bold">
-            Judges a book by its cover...
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-xl"
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-400 to-pink-500 bg-clip-text text-transparent">
+            Hi, I'm Parveen Solath 👋
           </h1>
+          <p className="text-gray-300 mt-4 text-base sm:text-lg leading-relaxed">
+            I’m a{" "}
+            <span className="text-indigo-400 font-semibold">
+              Frontend Developer
+            </span>{" "}
+            who loves building clean, modern, and responsive web applications
+            using <span className="text-indigo-400">React</span> and{" "}
+            <span className="text-indigo-400">Tailwind CSS</span>. I enjoy
+            crafting interactive experiences that bring ideas to life.
+          </p>
 
-          <div className="mt-10 flex gap-5">
-            <button className="bg-white text-indigo-950 font-semibold px-6 py-3 rounded-full hover:bg-indigo-800 hover:text-white border-2 border-indigo-950 duration-500 hover:scale-115">
-              <span className="hover-scale-200"> Hire Me</span>
-            </button>
-            <button
-              onClick={HendleDownload}
-              className="bg-white text-indigo-950 font-semibold px-6 py-3 rounded-full hover:bg-indigo-800 hover:text-white border-2 border-indigo-950 duration-500
-              hover:scale-115"
+          <div className="mt-6 flex justify-center md:justify-start gap-4">
+            <Link
+              to={"/Projects"}
+              className="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg font-semibold shadow-md transition duration-300"
             >
-              Download CV
-            </button>
+              View My Work
+            </Link>
+            <Link
+              to={"/Contact"}
+              className="px-6 py-3 border border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-white rounded-lg font-semibold transition duration-300"
+            >
+              Contact Me
+            </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="mt-10">
-        <h2 className="text-3xl">I'm a React JS Developer</h2>
-        <p>Currently, I'm a Frontend Developer Intern at Unified Mentor.</p>
-        <p className="mt-5 text-lg">
-          A passionate Frontend Developer with expertise in React.js, HTML, CSS,
-          and JavaScript. I create engaging and user-friendly web applications
-          that deliver exceptional user experiences.
-        </p>
-      </div>
-
-      <div className="mt-10">
-        <h2 className="text-3xl font-bold border-b-2 border-indigo-700 pb-2">
-          Work Experience
-        </h2>
-
-        <div className="mt-5 text-lg font-semibold">
-          Frontend Developer Intern at Unified Mentor (Oct 2025 - Present)
-        </div>
-
-        <div className="mt-5 flex flex-col md:flex-row   gap-10 border p-5 rounded-lg">
-          <ProjectCard
-            img={project1}
-            title="Flipkart E-commerce Website"
-            subtitle="A comprehensive e-commerce platform built with React.js."
-          />
-          <ProjectCard
-            img={project2}
-            title="Portfolio Website"
-            subtitle="Personal portfolio built with React and Tailwind CSS."
-          />
-          <ProjectCard
-            // img={project1}
-            title="GYM Management System"
-            subtitle="GYM Management System built with React and Tailwind CSS."
-          />
-          <ProjectCard
-            // img={project1}
-            title="Student-Teacher booking "
-            subtitle="Student-Teacher booking Appointment built with React and Tailwind CSS."
-          />
-        </div>
-      </div>
-    </div>
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-10 flex flex-col items-center gap-2"
+      >
+        <p className="text-gray-400 text-sm">Scroll Down</p>
+        <FaArrowDown className="animate-bounce text-indigo-400 text-xl" />
+      </motion.div>
+      <Projects />
+      <About />
+      <Contact />
+    </section>
   );
 }
