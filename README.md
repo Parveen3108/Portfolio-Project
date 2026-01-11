@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 💼 Personal Portfolio Website
 
 Welcome to my **Personal Portfolio Website** built using **React**, **Vite**, and **Tailwind CSS**.  
@@ -50,3 +51,6 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 >>>>>>> 894fca6 (Initial commit)
+=======
+# Personal-Portfolio
+>>>>>>> 541363561273df891cad3b1983455fe9c0389a19
